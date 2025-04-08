@@ -30,6 +30,7 @@ targetCustomizations:
       bulletproof-labs.com/region: east
       bulletproof-labs.com/env: prod
 
+# Yaml comments?
 - name: west-prod
   helm:
     valuesFiles:
