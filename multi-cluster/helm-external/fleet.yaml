@@ -1,28 +1,40 @@
 namespace: fleet-mc-helm-external-example
 helm:
   chart: https://github.com/rancher/fleet-examples/releases/download/example/guestbook-0.0.0.tgz
+  valueFile: values.yaml
 targetCustomizations:
-- name: dev
+- name: east-dev
   helm:
     values:
       replication: false
   clusterSelector:
     matchLabels:
-      env: dev
-
-- name: test
+      bulletproof-labs.com/region: east
+      bulletproof-labs.com/env: dev
+      
+- name: west-dev
   helm:
-    values:
-      replicas: 3
+    valuesFiles:
+      replication: false
   clusterSelector:
     matchLabels:
-      env: test
+      bulletproof-labs.com/region: west
+      bulletproof-labs.com/env: dev
 
-- name: prod
+- name: east-prod
   helm:
-    values:
-      serviceType: LoadBalancer
-      replicas: 3
+    valuesFiles:
+      replication: false
   clusterSelector:
     matchLabels:
-      env: prod
+      bulletproof-labs.com/region: east
+      bulletproof-labs.com/env: dev
+
+- name: west-prod
+  helm:
+    valuesFiles:
+      replication: false
+  clusterSelector:
+    matchLabels:
+      bulletproof-labs.com/region: west
+      bulletproof-labs.com/env: dev
