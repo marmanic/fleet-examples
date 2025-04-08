@@ -23,7 +23,7 @@ targetCustomizations:
 
 - name: east-prod
   helm:
-    valuesFiles:
+    values:
       replication: false
   clusterSelector:
     matchLabels:
@@ -33,7 +33,7 @@ targetCustomizations:
 # Yaml comments?
 - name: west-prod
   helm:
-    valuesFiles:
+    values:
       replication: false
   clusterSelector:
     matchLabels:
