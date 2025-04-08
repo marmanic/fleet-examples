@@ -14,7 +14,7 @@ targetCustomizations:
       
 - name: west-dev
   helm:
-    valuesFiles:
+    values:
       replication: false
   clusterSelector:
     matchLabels:
@@ -28,7 +28,7 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       bulletproof-labs.com/region: east
-      bulletproof-labs.com/env: dev
+      bulletproof-labs.com/env: prod
 
 - name: west-prod
   helm:
@@ -37,4 +37,4 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       bulletproof-labs.com/region: west
-      bulletproof-labs.com/env: dev
+      bulletproof-labs.com/env: prod
